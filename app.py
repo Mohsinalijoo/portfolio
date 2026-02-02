@@ -23,7 +23,7 @@ projects = [
     {
 
         "name": "Fake News Detection Using ML",
-        "desc": "A Tool to detect fake news using the ML model, training it with the sample dataset to improve the accuracy and provides the possibilities of the news being fake or real. (Ongoing)",
+        "desc": "A Flask-based Fake News Detection Web Application that classifies news articles as REAL or FAKE using a Machine Learning model.The system supports both manual text input and live news fetching using NewsAPI, providing predictions along with confidence scores.",
         "bg": "pr4.jpg"
     },
 ]
