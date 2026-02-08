@@ -573,87 +573,66 @@ section {
 }
 /* ========== RESUME SECTION ========== */
 
-.section-title-resume {
+/* ===== FIX: Resume Section (Match HTML Classes) ===== */
+
+.section-title-Resume {
     font-size: 2.5rem;
     font-weight: 700;
     color: #764ba2;
 }
 
-.resume-card {
+.Resume-card {
     background: white;
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.resume-icon {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 20px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.resume-icon i {
-    font-size: 3rem;
-    color: white;
-}
-
-.resume-details {
-    text-align: center;
-}
-
-.resume-details h4 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.resume-stats {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+    gap: 25px;
     flex-wrap: wrap;
-    margin-top: 20px;
 }
 
-.stat-item {
+.Resume-icon {
+    font-size: 70px;
+    color: #764ba2;
+}
+
+.Resume-details h4 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.Resume-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.Resume-stats .stat-item {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #666;
+    color: #555;
     font-weight: 600;
 }
 
-.stat-item i {
-    color: #764ba2;
-    font-size: 1.2rem;
-}
-
-.resume-actions {
+.Resume-actions {
+    margin-left: auto;
     display: flex;
-    justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
 }
 
-.btn-resume {
+.btn-Resume {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 30px;
-    border-radius: 10px;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 30px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
 }
 
 .btn-download {
@@ -662,20 +641,33 @@ section {
 }
 
 .btn-download:hover {
-    box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+    box-shadow: 0 8px 25px rgba(118,75,162,0.4);
     color: white;
 }
 
 .btn-view {
-    background: white;
+    border: 2px solid #764ba2;
     color: #764ba2;
-    border-color: #764ba2;
 }
 
 .btn-view:hover {
     background: #764ba2;
     color: white;
 }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .Resume-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Resume-actions {
+        margin-left: 0;
+        justify-content: center;
+    }
+}
+
 
 /* ========== CONTACT SECTION ========== */
 
