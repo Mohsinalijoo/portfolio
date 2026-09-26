@@ -1,44 +1,78 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, send_from_directory
+import os
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
 
-# Project data list (for dynamic display)
-projects = [
-    {
-        "name": "Book Recommendation System",
-        "desc": "Trained a recommendation model using Scikit-learn and Scipy for data processing. Utilized Collaborative Filtering to suggest personalized book recommendations.Developed an interactive interface with Streamlit to generate real-time book suggestions. Used K-Nearest Neighbors (KNN) Algorithm.",
-        "bg": "pr1.jpg"
-    },
-    {
-        "name": "Door Security System (IOT)",
-        "desc": "Door security system where the automated message is send to the user’s mobile phone to notify that the door is open.",
-        "bg": "pr2.jpg"
-    },
-    {
-        "name": "Hospital Appointment Scheduling Chatbot",
-        "desc": "Created a hospital appointment chatbot using Botpress to help users book specialist appointments via a simple conversational interface, with built-in validation and efficient scheduling flows.",
-        "bg": "pr3.jpg"
-    },
-    {
+# -----------------------------------------------------
+# EDIT THESE URLS WITH YOUR ACTUAL LINKS
+# -----------------------------------------------------
+PROFILE = {
+    "name": "Mohsin Ali",
+    "role": "Software Engineer",
+    "phone": "+919541855245",
+    "phone_display": "+91-9541855245",
+    "email": "mohsinalijoo@gmail.com",
 
-        "name": "Fake News Detection Using ML",
-        "desc": "A Flask-based Fake News Detection Web Application that classifies news articles as REAL or FAKE using a Machine Learning model.The system supports both manual text input and live news fetching using NewsAPI, providing predictions along with confidence scores.",
-        "bg": "pr4.jpg"
+    # Replace these:
+    "linkedin": "https://www.linkedin.com/in/mohsinalijoo/",
+    "github": "https://github.com/mohsinalijoo",
+}
+
+PROJECTS = [
+    {
+        "title": "Jan-Aushadhi Finder",
+        "description": (
+            "Native Android healthcare app built with Kotlin and MVVM. "
+            "Features Gemini AI medicine suggestions, GPS-based Jan-Aushadhi "
+            "store location, refill reminders and offline-first storage."
+        ),
+        "stack": "Kotlin • MVVM • Gemini API • Room • Google Maps",
+        # Replace with actual repository:
+        "github": "https://github.com/Mohsinalijoo/Jan-Aushadhi-Finder-Application"
     },
+    {
+        "title": "Fake News Classifier",
+        "description": (
+            "Full-stack Flask NLP application for classifying news as REAL "
+            "or FAKE. Compared multiple ML algorithms with an LSTM model "
+            "achieving 90%+ test accuracy."
+        ),
+        "stack": "Python • Flask • TensorFlow • Keras • NLP • SQL",
+        # Replace with actual repository:
+        "github": "https://github.com/Mohsinalijoo/fake-news-classifier"
+    },
+    {
+        "title": "Book Recommendation System",
+        "description": (
+            "Recommendation system using collaborative filtering and KNN "
+            "to generate personalized book recommendations through an "
+            "interactive Streamlit interface."
+        ),
+        "stack": "Python • Scikit-learn • SciPy • KNN • Streamlit",
+        # Replace with actual repository:
+        "github": "https://github.com/Mohsinalijoo/Book-recommendation-System-Using-ML"
+    }
 ]
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        # Contact form logic (this just displays a thank you for demo)
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
-        flash('Thank you for contacting me!', 'success')
-        # Production: Integrate with an email backend (Flask-Mail, SMTP, or Formspree)
-        return redirect(url_for('index'))
-    return render_template('index.html', projects=projects)
 
-if __name__ == '__main__':
+@app.route("/")
+def home():
+    return render_template(
+        "index.html",
+        profile=PROFILE,
+        projects=PROJECTS
+    )
+
+
+@app.route("/resume")
+def resume():
+    resume_dir = os.path.join(app.root_path, "resume")
+    return send_from_directory(
+        resume_dir,
+        "Mohsin_Ali_Resume.pdf",
+        as_attachment=False
+    )
+
+
+if __name__ == "__main__":
     app.run(debug=True)
