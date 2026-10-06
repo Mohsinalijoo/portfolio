@@ -31,6 +31,19 @@ PROJECTS = [
         "github": "https://github.com/Mohsinalijoo/Jan-Aushadhi-Finder-Application"
     },
     {
+        "title": "Study Loop",
+        "description": (
+            "A student-focused study management platform designed to make learning "
+            "more organized and collaborative. Study Loop helps users structure study "
+            "sessions, manage academic tasks, track learning goals, study with a study"
+            "partner and maintain a consistent study routine through a clean and interactive"
+            "interface."
+        ),
+        "stack": "HTML/CSS • JavaScript • Docker • Mongodb",
+        "github": "https://github.com/Mohsinalijoo/StudyLoop",
+        "deployment": "https://mystudyloop.vercel.app"
+    },
+    {
         "title": "Fake News Classifier",
         "description": (
             "Full-stack Flask NLP application for classifying news as REAL "

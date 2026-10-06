@@ -515,6 +515,50 @@
   
     transition: 0.2s ease;
   }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-links .github-button,
+.project-links .live-button {
+    flex: 1;
+    min-width: 135px;
+}
+
+.live-button {
+    min-height: 40px;
+
+    border: 1px solid #333;
+
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    cursor: none;
+
+    transition: 0.2s ease;
+}
+
+.live-button span {
+    margin-left: auto;
+}
+
+.live-button:hover {
+    color: black;
+    background: white;
+    border-color: white;
+}
   
   .github-button span {
     margin-left: auto;
@@ -616,6 +660,15 @@
   ========================================= */
   
   @media (max-width: 700px) {
+    
+    .project-links {
+      flex-direction: column;
+  }
+  
+  .project-links .github-button,
+  .project-links .live-button {
+      width: 100%;
+  }
   
     body {
         cursor: auto;

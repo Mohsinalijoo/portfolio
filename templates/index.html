@@ -235,16 +235,33 @@
                         {{ project.stack }}
                     </div>
 
-                    <a
-                        href="{{ project.github }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="github-button interactive"
-                    >
-                        <i class="fa-brands fa-github"></i>
-                        SOURCE_CODE
-                        <span>↗</span>
-                    </a>
+                    <div class="project-links">
+
+                        <a
+                            href="{{ project.github }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-button interactive"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                            SOURCE_CODE
+                            <span>↗</span>
+                        </a>
+                    
+                        {% if project.deployment %}
+                        <a
+                            href="{{ project.deployment }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="live-button interactive"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            LIVE_DEMO
+                            <span>↗</span>
+                        </a>
+                        {% endif %}
+                    
+                    </div>
 
                 </article>
 
